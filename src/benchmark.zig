@@ -210,7 +210,7 @@ const TimedQueue = struct {
             const message = self.client.get_message();
             defer self.client.unref(message);
 
-            util.copy_distinct(
+            util.copy_disjoint(
                 .inexact,
                 u8,
                 message.buffer[@sizeOf(vsr.Header)..],
@@ -268,7 +268,7 @@ const TimedQueue = struct {
             const message = self.client.get_message();
             defer self.client.unref(message);
 
-            util.copy_distinct(
+            util.copy_disjoint(
                 .inexact,
                 u8,
                 message.buffer[@sizeOf(vsr.Header)..],
